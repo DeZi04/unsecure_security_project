@@ -8,13 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @AllArgsConstructor
 @Controller
-public class HomeController {
+public class XSSController {
 
-	@GetMapping("/")
-	public String index(@RequestParam String txt, Model model) {
+	@GetMapping("/xss/insecure")
+	public String xssInsecure(@RequestParam(required = false, defaultValue = "default") String input, Model model) {
+		model.addAttribute("text", input);
 
-		model.addAttribute("text", txt);
-
-		return "index";
+		return "xss/xssInsecure";
 	}
 }
