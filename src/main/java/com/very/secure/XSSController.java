@@ -14,6 +14,6 @@ public class XSSController {
 	public String xssInsecure(@RequestParam(required = false, defaultValue = "default") String input, Model model) {
 		model.addAttribute("text", input);
 
-		return "xss/xssInsecure";
+		return "insecure/xssInsecure";
 	}
 }
