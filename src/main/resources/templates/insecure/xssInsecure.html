@@ -5,6 +5,13 @@
     <title>xss insecure</title>
 </head>
 <body>
-    write a xss script
+<p>Try some XSS</p>
+<form action="/xss/insecure">
+    <input type="text">
+    <button type="submit">Submit</button>
+    <br>
+    <p th:text="*{text}"></p>
+
+</form>
 </body>
 </html>
