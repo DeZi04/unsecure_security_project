@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xss insecure</title>
+</head>
+<body>
+<p>Try some XSS</p>
+<form action="/xss/insecure/input" method="post">
+    <input type="text" name="input">
+    <button type="submit">Submit</button>
+    <br>
+    <p th:text="*{text}"></p>
+</form>
+</body>
+</html>

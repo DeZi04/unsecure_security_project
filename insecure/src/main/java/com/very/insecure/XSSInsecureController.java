@@ -1,19 +1,25 @@
-package com.very.secure;
+package com.very.insecure;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @AllArgsConstructor
 @Controller
-public class XSSController {
+public class XSSInsecureController {
 
 	@GetMapping("/xss/insecure")
-	public String xssInsecure(@RequestParam(required = false, defaultValue = "default") String input, Model model) {
-		model.addAttribute("text", input);
+	public String xssInsecureInitial(){
+		return "insecure/xss";
+	}
 
-		return "insecure/xssInsecure";
+	@PostMapping("/xss/insecure/input")
+	public String xssInsecure(@RequestParam String input, Model model) {
+		System.out.println(input);
+		model.addAttribute("text", input);
+		return "/xss";
 	}
 }

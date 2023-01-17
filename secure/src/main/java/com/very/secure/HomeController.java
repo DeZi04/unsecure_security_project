@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HomeController {
 
 	@GetMapping("/")
-	public String index(@RequestParam String txt, Model model) {
-
-		model.addAttribute("text", txt);
-
+	public String index() {
 		return "index";
 	}
 }
