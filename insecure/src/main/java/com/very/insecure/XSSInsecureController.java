@@ -13,7 +13,7 @@ public class XSSInsecureController {
 
 	@GetMapping("/xss/insecure")
 	public String xssInsecureInitial(){
-		return "insecure/xss";
+		return "/xss";
 	}
 
 	@PostMapping("/xss/insecure/input")
