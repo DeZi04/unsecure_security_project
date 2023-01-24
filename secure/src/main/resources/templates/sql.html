@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>sql secure</title>
-</head>
-<body>
-<p>Try some SQL injection</p>
-<form action="/sql/secure/input" method="post">
-    <input type="text" name="input">
-    <button type="submit">Submit</button>
-    <br>
-    <p th:text="*{text}"></p>
-</form>
-</body>
+  </head>
+  <body>
+    <p>Try some SQL injection with this password field</p>
+    <p>The used query is the following:</p>
+    <pre>select val from entry where val = ?</pre>
+    <form action="/sql/secure/input" method="post">
+      <input type="text" name="input" />
+      <button type="submit">Submit</button>
+      <br />
+      <p th:text="*{text}"></p>
+    </form>
+  </body>
 </html>
